@@ -1,0 +1,4 @@
+# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+org.jdonee.cooking.autoconfigure.mongo3.Mongo3AutoConfiguration,\
+org.jdonee.cooking.autoconfigure.mongo3.Mongo3DataAutoConfiguration
