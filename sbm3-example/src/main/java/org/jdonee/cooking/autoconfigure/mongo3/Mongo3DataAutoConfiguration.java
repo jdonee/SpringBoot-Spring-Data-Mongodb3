@@ -33,6 +33,7 @@ import org.springframework.data.mongodb.core.SimpleMongoDbFactory;
 import org.springframework.data.mongodb.core.convert.CustomConversions;
 import org.springframework.data.mongodb.core.convert.DbRefResolver;
 import org.springframework.data.mongodb.core.convert.DefaultDbRefResolver;
+import org.springframework.data.mongodb.core.convert.DefaultMongoTypeMapper;
 import org.springframework.data.mongodb.core.convert.MappingMongoConverter;
 import org.springframework.data.mongodb.core.convert.MongoConverter;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -46,9 +47,6 @@ import com.mongodb.DB;
 import com.mongodb.MongoClient;
 
 /**
- * 
- * NOTE:使用MongoClient替代Mongo旧接口
- * 
  * @author Jdonee
  *
  */
@@ -76,7 +74,7 @@ public class Mongo3DataAutoConfiguration {
 
 	@Bean
 	@ConditionalOnMissingBean
-	public MongoTemplate mongoTemplate(MongoDbFactory mongoDbFactory, MongoConverter converter)
+	public MongoTemplate mongoTemplate(MongoDbFactory mongoDbFactory,MongoConverter converter)
 			throws UnknownHostException {
 		return new MongoTemplate(mongoDbFactory, converter);
 	}

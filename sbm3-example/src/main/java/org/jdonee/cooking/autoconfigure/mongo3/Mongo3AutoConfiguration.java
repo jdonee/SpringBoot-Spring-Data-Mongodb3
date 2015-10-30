@@ -16,10 +16,9 @@ import org.springframework.context.annotation.Configuration;
 
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientOptions;
+import com.mongodb.ReadPreference;
 
 /**
- * NOTE:使用MongoClient替代Mongo旧接口
- * 
  * @author Jdonee
  *
  */
@@ -47,6 +46,7 @@ public class Mongo3AutoConfiguration {
 	@ConditionalOnMissingBean
 	public MongoClient mongo() throws UnknownHostException {
 		this.mongoClient = this.properties.createMongoClient(this.options);
+		this.mongoClient.setReadPreference(ReadPreference.secondaryPreferred());// 优先从secondary节点进行读取操作，secondary节点不可用时从主节点读取数据
 		return this.mongoClient;
 	}
 
