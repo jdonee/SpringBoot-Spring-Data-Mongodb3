@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.jdonee.cooking.customer;
+package org.jdonee.cooking.entity;
 
 import lombok.Builder;
 import lombok.Data;

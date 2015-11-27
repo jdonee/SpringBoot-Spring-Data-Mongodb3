@@ -1,10 +1,11 @@
 /**
  * 
  */
-package org.jdonee.cooking.customer;
+package org.jdonee.cooking.repository;
 
 import java.util.List;
 
+import org.jdonee.cooking.entity.Customer;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 /**
