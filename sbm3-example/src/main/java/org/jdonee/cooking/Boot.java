@@ -1,5 +1,6 @@
 package org.jdonee.cooking;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -80,12 +81,12 @@ public class Boot implements CommandLineRunner {
 		List<String> firstNames = Lists.newArrayList("家用", "钱钱", "富贵", "千金", "万贯", "戡乱", "轮回", "天下", "明智", "碧君");
 
 		// save a couple of customers
-		this.repository.save(Customer.builder().firstName("大大").lastName("习").build());
-		this.repository.save(Customer.builder().firstName("麻麻").lastName("彭").build());
+		this.repository.save(Customer.builder().firstName("大大").lastName("习").created(new Date()).build());
+		this.repository.save(Customer.builder().firstName("麻麻").lastName("彭").created(new Date()).build());
 		for (int i = 0; i < 100; i++) {
 			Random random = new Random();
 			Customer customer = Customer.builder().firstName(firstNames.get(random.nextInt(firstNames.size())))
-					.lastName(lastNames.get(random.nextInt(lastNames.size()))).build();
+					.lastName(lastNames.get(random.nextInt(lastNames.size()))).created(new Date()).build();
 			this.repository.save(customer);
 		}
 

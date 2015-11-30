@@ -58,7 +58,7 @@ public class CustomerServiceImpl implements CustomerService {
 		// 取值限制
 		query.skip(criterias.getStart()).limit(criterias.getLength());
 		List<Customer> datas = operation.find(query, Customer.class);
-		DataSet<Customer> dataset = new DataSet<Customer>(datas, total, criterias.getLength().longValue());
+		DataSet<Customer> dataset = new DataSet<Customer>(datas, total, total);
 		log.debug("最后显示结果：" + criterias.toString());
 		return dataset;
 	}
